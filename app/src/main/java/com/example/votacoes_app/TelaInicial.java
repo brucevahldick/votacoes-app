@@ -7,17 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class TelaInicial extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_tela_inicial);
 
-        Button btEntrar = findViewById(R.id.btEntrar);
+        Button btGerenciar = findViewById(R.id.btGerenciar);
 
-        btEntrar.setOnClickListener(v -> {
-            Intent i = new Intent(MainActivity.this, Login.class);
+        btGerenciar.setOnClickListener(v -> {
+            Intent i = new Intent(TelaInicial.this, RedirectCards.class);
             startActivity(i);
         });
     }

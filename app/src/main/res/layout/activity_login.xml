@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/inputCpf"
             android:layout_width="250dp"
             android:layout_height="55dp"
             android:layout_marginStart="104dp"
@@ -28,6 +28,7 @@
             android:background="@drawable/round_edit_text"
             android:ems="10"
             android:inputType="textPersonName"
+            android:paddingLeft="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,13 +43,13 @@
             android:fontFamily="@font/roboto_light"
             android:text="CPF:"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/inputCpf"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.227"
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button"
+            android:id="@+id/btLogin"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_marginBottom="108dp"
@@ -73,16 +74,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.301"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/inputSenha" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/inputSenha"
             android:layout_width="250dp"
             android:layout_height="55dp"
             android:layout_marginTop="264dp"
             android:background="@drawable/round_edit_text"
             android:ems="10"
             android:inputType="textPassword"
+            android:paddingLeft="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -96,7 +98,7 @@
             android:fontFamily="@font/roboto_light"
             android:text="Senha:"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
+            app:layout_constraintBottom_toTopOf="@+id/inputSenha"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.227"
             app:layout_constraintStart_toStartOf="parent" />
