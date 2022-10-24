@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "218400834575",
+    "project_id": "votae-6d665",
+    "storage_bucket": "votae-6d665.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:218400834575:android:c07918c510ed8338f04f7a",
+        "android_client_info": {
+          "package_name": "com.udesc.votacoes_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "218400834575-ms0ic7bqk8djcc5lutfih12kiujb918e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfhNkylpQSsuPw808ScSoh1TN_KtitHfw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "218400834575-ms0ic7bqk8djcc5lutfih12kiujb918e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
