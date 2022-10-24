@@ -22,6 +22,7 @@ public class RedirectCards extends AppCompatActivity {
             startActivity(i);
         });
 
+
         btReunioes.setOnClickListener(v -> {
             Intent i = new Intent(RedirectCards.this, IndexReunioes.class);
             startActivity(i);
