@@ -8,7 +8,7 @@
     tools:context=".CadastroIntegrante">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btIndexVoltar3"
+        android:id="@+id/btVoltarIntegrante"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -24,7 +24,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="397dp"
         android:layout_height="574dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/round_home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +45,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/edCpf"
             android:layout_width="350dp"
             android:layout_height="40dp"
             android:layout_marginBottom="40dp"
@@ -77,10 +77,10 @@
             android:layout_marginBottom="4dp"
             android:fontFamily="@font/roboto_bold"
             android:text="CPF:"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/edCpf"
+            app:layout_constraintEnd_toEndOf="@+id/edCpf"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName" />
+            app:layout_constraintStart_toStartOf="@+id/edCpf" />
 
         <TextView
             android:id="@+id/tvCadNome"
