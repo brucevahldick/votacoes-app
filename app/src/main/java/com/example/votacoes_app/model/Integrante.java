@@ -8,6 +8,9 @@ public class Integrante {
     private String contato;
     private String senha;
 
+    public Integrante() {
+    }
+
     public Integrante(String cpf, String nome, String conselho, String contato, String senha) {
         this.cpf = cpf;
         this.nome = nome;
