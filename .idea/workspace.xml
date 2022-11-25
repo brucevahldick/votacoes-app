@@ -12,14 +12,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18f7d93b-29f2-409b-8bec-d6abbe540697" name="Changes" comment="Cadastro de integrante funcional + começo de listagem de integrantes">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/adapter/AdapterIntegrantes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/adapter/ViewHolderIntegrante.java" afterDir="false" />
+    <list default="true" id="18f7d93b-29f2-409b-8bec-d6abbe540697" name="Changes" comment="Index de integrante inicial (ajustes necessários)">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/IndexIntegrantes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/IndexIntegrantes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/model/Integrante.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/model/Integrante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_index_integrantes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_index_integrantes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_integrante.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_integrante.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/CadastroIntegrante.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/CadastroIntegrante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_cadastro_integrante.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_cadastro_integrante.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +87,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Faculdade/DDM/recyclerView" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -216,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668731354481</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Index de integrante inicial (ajustes necessários)">
+      <created>1669169629298</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1669169629298</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -280,6 +292,7 @@
     <MESSAGE value="Corrigidos designs das telas de secretario" />
     <MESSAGE value="Criada tela de cadastro de integrante" />
     <MESSAGE value="Cadastro de integrante funcional + começo de listagem de integrantes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cadastro de integrante funcional + começo de listagem de integrantes" />
+    <MESSAGE value="Index de integrante inicial (ajustes necessários)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Index de integrante inicial (ajustes necessários)" />
   </component>
 </project>

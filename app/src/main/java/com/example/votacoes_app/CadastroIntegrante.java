@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.votacoes_app.model.Integrante;
@@ -16,21 +19,27 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.io.File;
+
 public class CadastroIntegrante extends AppCompatActivity {
+
+    private Integrante integrante;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_integrante);
 
-        EditText edCpf        =   findViewById(R.id.edCpf);
-        EditText edNome       =   findViewById(R.id.edCadNome);
-        EditText edConselho   =   findViewById(R.id.edCadConselho);
-        EditText edContato    =   findViewById(R.id.edCadContato);
-        EditText edSenha      =   findViewById(R.id.edCadSenha);
+        ImageButton imgIntegrante   = findViewById(R.id.imgCadIntegrante);
 
-        Button btSalvar     =   findViewById(R.id.btSalvarIntegrante);
-        Button btVoltar     =   findViewById(R.id.btVoltarIntegrante);
+        EditText edCpf              =   findViewById(R.id.edCpf);
+        EditText edNome             =   findViewById(R.id.edCadNome);
+        EditText edConselho         =   findViewById(R.id.edCadConselho);
+        EditText edContato          =   findViewById(R.id.edCadContato);
+        EditText edSenha            =   findViewById(R.id.edCadSenha);
+
+        Button btSalvar             =   findViewById(R.id.btSalvarIntegrante);
+        Button btVoltar             =   findViewById(R.id.btVoltarIntegrante);
 
         btSalvar.setOnClickListener(v -> {
 
@@ -48,9 +57,9 @@ public class CadastroIntegrante extends AppCompatActivity {
                 toast.show();
             }
 
-            Integrante i = new Integrante(cpf, nome, conselho, contato, senha);
+            integrante = new Integrante(cpf, nome, conselho, contato, senha);
 
-            cadastrarIntegrante(i);
+            cadastrarIntegrante(integrante);
         });
 
         btVoltar.setOnClickListener(v -> {
@@ -58,6 +67,16 @@ public class CadastroIntegrante extends AppCompatActivity {
             startActivity(i);
         });
 
+        imgIntegrante.setOnClickListener(v -> {
+            //@todo alterar p/ utilizar a camera
+            selecionarFoto();
+        });
+
+    }
+
+    private void selecionarFoto(){
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivity(takePictureIntent);
     }
 
     private void cadastrarIntegrante(Integrante i) {
@@ -84,6 +103,6 @@ public class CadastroIntegrante extends AppCompatActivity {
                         toast.show();
                     }
                 });
-
     }
+
 }
