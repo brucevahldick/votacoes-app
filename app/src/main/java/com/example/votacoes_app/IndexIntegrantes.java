@@ -25,7 +25,7 @@ public class IndexIntegrantes extends AppCompatActivity {
     private RecyclerView recyclerView;
     private AdapterIntegrantes adapter;
     private ArrayList<Integrante> integrantes;
-    private Button btCadIntegrante;
+    private Button btCadIntegrante, btVoltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,7 @@ public class IndexIntegrantes extends AppCompatActivity {
         setContentView(R.layout.activity_index_integrantes);
 
         btCadIntegrante = findViewById(R.id.btCadIntegrante);
+        btVoltar = findViewById(R.id.btIndexVoltar);
 
         recyclerView = findViewById(R.id.rvIntegrantes);
         integrantes = new ArrayList<Integrante>();
@@ -69,6 +70,10 @@ public class IndexIntegrantes extends AppCompatActivity {
             startActivity(i);
         });
 
+        btVoltar.setOnClickListener(v -> {
+            Intent i = new Intent(IndexIntegrantes.this, RedirectCards.class);
+            startActivity(i);
+        });
 
     }
 }

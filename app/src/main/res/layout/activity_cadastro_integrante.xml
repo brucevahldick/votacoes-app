@@ -44,25 +44,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
+        <com.santalu.maskara.widget.MaskEditText
             android:id="@+id/edCpf"
             android:layout_width="350dp"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:layout_marginBottom="40dp"
             android:background="@drawable/round_edit_text"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="number"
+            android:paddingLeft="15dp"
             app:layout_constraintBottom_toTopOf="@+id/edCadNome"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:mask="___.___.___-__"
+            app:maskCharacter="_"
+            app:maskStyle="normal" />
 
         <EditText
             android:id="@+id/edCadNome"
             android:layout_width="350dp"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:layout_marginBottom="40dp"
             android:background="@drawable/round_edit_text"
+            android:paddingLeft="15dp"
             android:ems="10"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/edCadConselho"
@@ -97,10 +102,11 @@
         <EditText
             android:id="@+id/edCadConselho"
             android:layout_width="350dp"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:layout_marginBottom="40dp"
             android:background="@drawable/round_edit_text"
             android:ems="10"
+            android:paddingLeft="15dp"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/edCadContato"
             app:layout_constraintEnd_toEndOf="parent"
@@ -119,18 +125,22 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/edCadConselho" />
 
-        <EditText
+        <com.santalu.maskara.widget.MaskEditText
             android:id="@+id/edCadContato"
             android:layout_width="350dp"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:layout_marginBottom="40dp"
             android:background="@drawable/round_edit_text"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:paddingLeft="15dp"
+            android:inputType="number"
             app:layout_constraintBottom_toTopOf="@+id/edCadSenha"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:mask="(__) _____-____"
+            app:maskCharacter="_"
+            app:maskStyle="normal" />
 
         <TextView
             android:id="@+id/tvContato"
@@ -146,10 +156,11 @@
         <EditText
             android:id="@+id/edCadSenha"
             android:layout_width="350dp"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/round_edit_text"
             android:ems="10"
+            android:paddingLeft="15dp"
             android:inputType="textPassword"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -167,15 +178,18 @@
             app:layout_constraintHorizontal_bias="0.003"
             app:layout_constraintStart_toStartOf="@+id/edCadSenha" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/imgCadIntegrante"
-            android:layout_width="133dp"
-            android:layout_height="114dp"
-            android:layout_marginTop="48dp"
+            android:layout_width="114dp"
+            android:layout_height="111dp"
+            android:layout_marginTop="36dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_baseline_photo_camera_24"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@android:drawable/ic_menu_camera" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

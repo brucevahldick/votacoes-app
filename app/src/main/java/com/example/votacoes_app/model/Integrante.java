@@ -2,6 +2,8 @@ package com.example.votacoes_app.model;
 
 public class Integrante {
 
+    private String imgageId;
+
     private String cpf;
     private String nome;
     private String conselho;
@@ -17,6 +19,14 @@ public class Integrante {
         this.conselho = conselho;
         this.contato = contato;
         this.senha = senha;
+    }
+
+    public String getImgageId() {
+        return imgageId;
+    }
+
+    public void setImgageId(String imgageId) {
+        this.imgageId = imgageId;
     }
 
     public String getCpf() {
@@ -57,16 +67,5 @@ public class Integrante {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    @Override
-    public String toString() {
-        return "Integrante{" +
-                "cpf='" + cpf + '\'' +
-                ", nome='" + nome + '\'' +
-                ", conselho='" + conselho + '\'' +
-                ", contato='" + contato + '\'' +
-                ", senha='" + senha + '\'' +
-                '}';
     }
 }
