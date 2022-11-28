@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/index_bg"
+    tools:context=".CadastroIntegrante">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btVoltarIntegrante"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/round_index_buttons"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Voltar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="397dp"
+        android:layout_height="574dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/round_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Cadastro"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.santalu.maskara.widget.MaskEditText
+            android:id="@+id/edCpf"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/round_edit_text"
+            android:ems="10"
+            android:inputType="number"
+            android:paddingLeft="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/edCadNome"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:mask="___.___.___-__"
+            app:maskCharacter="_"
+            app:maskStyle="normal" />
+
+        <EditText
+            android:id="@+id/edCadNome"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/round_edit_text"
+            android:paddingLeft="15dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/edCadConselho"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCadCpf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="CPF:"
+            app:layout_constraintBottom_toTopOf="@+id/edCpf"
+            app:layout_constraintEnd_toEndOf="@+id/edCpf"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/edCpf" />
+
+        <TextView
+            android:id="@+id/tvCadNome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Nome:"
+            app:layout_constraintBottom_toTopOf="@+id/edCadNome"
+            app:layout_constraintEnd_toEndOf="@+id/edCadNome"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/edCadNome" />
+
+        <EditText
+            android:id="@+id/edCadConselho"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/round_edit_text"
+            android:ems="10"
+            android:paddingLeft="15dp"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/edCadContato"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCadConselho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Conselho:"
+            app:layout_constraintBottom_toTopOf="@+id/edCadConselho"
+            app:layout_constraintEnd_toEndOf="@+id/edCadConselho"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/edCadConselho" />
+
+        <com.santalu.maskara.widget.MaskEditText
+            android:id="@+id/edCadContato"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/round_edit_text"
+            android:ems="10"
+            android:paddingLeft="15dp"
+            android:inputType="number"
+            app:layout_constraintBottom_toTopOf="@+id/edCadSenha"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:mask="(__) _____-____"
+            app:maskCharacter="_"
+            app:maskStyle="normal" />
+
+        <TextView
+            android:id="@+id/tvContato"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Contato"
+            app:layout_constraintBottom_toTopOf="@+id/edCadContato"
+            app:layout_constraintEnd_toEndOf="@+id/edCadContato"
+            app:layout_constraintHorizontal_bias="0.003"
+            app:layout_constraintStart_toStartOf="@+id/edCadContato" />
+
+        <EditText
+            android:id="@+id/edCadSenha"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/round_edit_text"
+            android:ems="10"
+            android:paddingLeft="15dp"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvSenha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Senha"
+            app:layout_constraintBottom_toTopOf="@+id/edCadSenha"
+            app:layout_constraintEnd_toEndOf="@+id/edCadSenha"
+            app:layout_constraintHorizontal_bias="0.003"
+            app:layout_constraintStart_toStartOf="@+id/edCadSenha" />
+
+        <ImageView
+            android:id="@+id/imgCadIntegrante"
+            android:layout_width="114dp"
+            android:layout_height="111dp"
+            android:layout_marginTop="36dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_baseline_photo_camera_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@android:drawable/ic_menu_camera" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btSalvarIntegrante"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/round_index_buttons"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Salvar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

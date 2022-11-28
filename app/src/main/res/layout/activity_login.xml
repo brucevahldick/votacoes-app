@@ -27,7 +27,7 @@
             android:layout_marginEnd="103dp"
             android:background="@drawable/round_edit_text"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:paddingLeft="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.51"
