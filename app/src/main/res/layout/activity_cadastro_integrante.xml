@@ -22,8 +22,8 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="397dp"
-        android:layout_height="574dp"
+        android:layout_width="395dp"
+        android:layout_height="569dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/round_home"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,36 +44,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.santalu.maskara.widget.MaskEditText
-            android:id="@+id/edCpf"
-            android:layout_width="350dp"
-            android:layout_height="45dp"
-            android:layout_marginBottom="40dp"
-            android:background="@drawable/round_edit_text"
-            android:ems="10"
-            android:inputType="number"
-            android:paddingLeft="15dp"
-            app:layout_constraintBottom_toTopOf="@+id/edCadNome"
+        <ImageView
+            android:id="@+id/imgCadIntegrante"
+            android:layout_width="99dp"
+            android:layout_height="81dp"
+            android:layout_marginTop="36dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_baseline_photo_camera_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:mask="___.___.___-__"
-            app:maskCharacter="_"
-            app:maskStyle="normal" />
-
-        <EditText
-            android:id="@+id/edCadNome"
-            android:layout_width="350dp"
-            android:layout_height="45dp"
-            android:layout_marginBottom="40dp"
-            android:background="@drawable/round_edit_text"
-            android:paddingLeft="15dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/edCadConselho"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@android:drawable/ic_menu_camera" />
 
         <TextView
             android:id="@+id/tvCadCpf"
@@ -86,6 +68,23 @@
             app:layout_constraintEnd_toEndOf="@+id/edCpf"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/edCpf" />
+
+        <com.santalu.maskara.widget.MaskEditText
+            android:id="@+id/edCpf"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/round_edit_text"
+            android:ems="10"
+            android:inputType="number"
+            android:paddingLeft="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/edCadNome"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:mask="___.___.___-__"
+            app:maskCharacter="_"
+            app:maskStyle="normal" />
 
         <TextView
             android:id="@+id/tvCadNome"
@@ -100,15 +99,15 @@
             app:layout_constraintStart_toStartOf="@+id/edCadNome" />
 
         <EditText
-            android:id="@+id/edCadConselho"
+            android:id="@+id/edCadNome"
             android:layout_width="350dp"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
             android:layout_marginBottom="40dp"
             android:background="@drawable/round_edit_text"
             android:ems="10"
-            android:paddingLeft="15dp"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/edCadContato"
+            android:paddingLeft="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/edCadConselho"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent" />
@@ -125,22 +124,19 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/edCadConselho" />
 
-        <com.santalu.maskara.widget.MaskEditText
-            android:id="@+id/edCadContato"
+        <EditText
+            android:id="@+id/edCadConselho"
             android:layout_width="350dp"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
             android:layout_marginBottom="40dp"
             android:background="@drawable/round_edit_text"
             android:ems="10"
+            android:inputType="textPersonName"
             android:paddingLeft="15dp"
-            android:inputType="number"
-            app:layout_constraintBottom_toTopOf="@+id/edCadSenha"
+            app:layout_constraintBottom_toTopOf="@+id/edCadContato"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:mask="(__) _____-____"
-            app:maskCharacter="_"
-            app:maskStyle="normal" />
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/tvContato"
@@ -153,19 +149,22 @@
             app:layout_constraintHorizontal_bias="0.003"
             app:layout_constraintStart_toStartOf="@+id/edCadContato" />
 
-        <EditText
-            android:id="@+id/edCadSenha"
+        <com.santalu.maskara.widget.MaskEditText
+            android:id="@+id/edCadContato"
             android:layout_width="350dp"
-            android:layout_height="45dp"
-            android:layout_marginBottom="16dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="40dp"
             android:background="@drawable/round_edit_text"
             android:ems="10"
+            android:inputType="number"
             android:paddingLeft="15dp"
-            android:inputType="textPassword"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/edCadSenha"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintStart_toStartOf="parent"
+            app:mask="(__) _____-____"
+            app:maskCharacter="_"
+            app:maskStyle="normal" />
 
         <TextView
             android:id="@+id/tvSenha"
@@ -178,18 +177,31 @@
             app:layout_constraintHorizontal_bias="0.003"
             app:layout_constraintStart_toStartOf="@+id/edCadSenha" />
 
-        <ImageView
-            android:id="@+id/imgCadIntegrante"
-            android:layout_width="114dp"
-            android:layout_height="111dp"
-            android:layout_marginTop="36dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_baseline_photo_camera_24"
+        <EditText
+            android:id="@+id/edCadSenha"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="88dp"
+            android:background="@drawable/round_edit_text"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:paddingLeft="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Switch
+            android:id="@+id/swSecretario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Secretário?"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.08"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@android:drawable/ic_menu_camera" />
+            app:layout_constraintTop_toBottomOf="@+id/edCadSenha" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

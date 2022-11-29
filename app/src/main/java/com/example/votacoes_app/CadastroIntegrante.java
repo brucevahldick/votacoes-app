@@ -8,14 +8,18 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.votacoes_app.model.Integrante;
@@ -39,6 +43,7 @@ public class CadastroIntegrante extends AppCompatActivity {
     private Integrante integrante;
     private final int CAMERA_REQUEST_CODE = 2;
     private ImageView imgIntegrante;
+    private int tipo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +61,8 @@ public class CadastroIntegrante extends AppCompatActivity {
         Button btSalvar             =   findViewById(R.id.btSalvarIntegrante);
         Button btVoltar             =   findViewById(R.id.btVoltarIntegrante);
 
+        Switch swTipo               =   findViewById(R.id.swSecretario);
+
         btSalvar.setOnClickListener(v -> {
 
             String cpf      =   edCpf.getText().toString();
@@ -71,13 +78,22 @@ public class CadastroIntegrante extends AppCompatActivity {
                         Toast.LENGTH_SHORT);
                 toast.show();
             } else {
-                integrante = new Integrante(cpf, nome, conselho, contato, senha);
-                salvarImagem();
-                cadastrarIntegrante(integrante);
 
+                integrante = new Integrante(cpf, nome, conselho, contato, tipo, senha);
+                salvarImagem(integrante);
             }
 
+        });
 
+        swTipo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) {
+                    tipo = 1;
+                } else {
+                    tipo = 2;
+                }
+            }
         });
 
         btVoltar.setOnClickListener(v -> {
@@ -86,7 +102,6 @@ public class CadastroIntegrante extends AppCompatActivity {
         });
 
         imgIntegrante.setOnClickListener(v -> {
-            //@todo alterar p/ utilizar a camera
             selecionarFoto();
         });
 
@@ -110,12 +125,11 @@ public class CadastroIntegrante extends AppCompatActivity {
 
     }
 
-    protected void salvarImagem() {
+    protected void salvarImagem(Integrante integrante) {
         String fileName = UUID.randomUUID().toString();
         StorageReference storageRef = FirebaseStorage.getInstance().
                 getReference("/images/" + fileName);
 
-        integrante.setImgageId(fileName);
 
         imgIntegrante.setDrawingCacheEnabled(true);
         imgIntegrante.buildDrawingCache();
@@ -138,7 +152,19 @@ public class CadastroIntegrante extends AppCompatActivity {
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Log.i("Imagem:", taskSnapshot.getMetadata().toString());
+                storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        Log.i("Imagem URL:", uri.toString());
+                        integrante.setImgageId(uri.toString());
+                        cadastrarIntegrante(integrante);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.i("Imagem erro:", e.getMessage().toString());
+                    }
+                });
             }
         });
     }

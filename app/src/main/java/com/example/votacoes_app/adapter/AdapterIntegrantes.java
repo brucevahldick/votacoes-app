@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.votacoes_app.R;
 import com.example.votacoes_app.model.Integrante;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -46,6 +47,11 @@ public class AdapterIntegrantes extends RecyclerView.Adapter<ViewHolderIntegrant
         Integrante integrante = integrantes.get(position);
         holder.nome.setText(integrante.getNome());
         holder.conselho.setText(integrante.getConselho());
+        Picasso.get()
+                .load(integrante.getImgageId())
+                .fit()
+                .centerCrop()
+                .into(holder.imgIntegrante);
     }
 
 }

@@ -46,10 +46,9 @@
         app:layout_constraintVertical_bias="0.389" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvIndex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
         android:fontFamily="@font/roboto_light"
         android:text="Integrantes Cadastrados"
         android:textColor="@color/white"
@@ -57,5 +56,7 @@
         app:layout_constraintBottom_toTopOf="@+id/rvIntegrantes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

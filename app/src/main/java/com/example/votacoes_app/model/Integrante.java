@@ -8,16 +8,18 @@ public class Integrante {
     private String nome;
     private String conselho;
     private String contato;
+    private int tipo;
     private String senha;
 
     public Integrante() {
     }
 
-    public Integrante(String cpf, String nome, String conselho, String contato, String senha) {
+    public Integrante(String cpf, String nome, String conselho, String contato, int tipo, String senha) {
         this.cpf = cpf;
         this.nome = nome;
         this.conselho = conselho;
         this.contato = contato;
+        this.tipo = tipo;
         this.senha = senha;
     }
 
@@ -59,6 +61,14 @@ public class Integrante {
 
     public void setContato(String contato) {
         this.contato = contato;
+    }
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
     }
 
     public String getSenha() {

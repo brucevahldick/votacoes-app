@@ -28,7 +28,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/imgAvatarIntegrante"
                 android:layout_width="5dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -41,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="8dp"
+                android:layout_marginTop="8dp"
                 android:text="TextView" />
 
             <TextView
@@ -49,7 +50,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="8dp"
+                android:layout_marginTop="8dp"
                 android:text="TextView" />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </android.support.constraint.ConstraintLayout>

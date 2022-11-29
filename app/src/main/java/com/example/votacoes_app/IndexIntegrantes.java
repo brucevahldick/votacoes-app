@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.example.votacoes_app.adapter.AdapterIntegrantes;
 import com.example.votacoes_app.model.Integrante;
@@ -18,6 +20,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import org.checkerframework.checker.units.qual.A;
+
 import java.util.ArrayList;
 
 public class IndexIntegrantes extends AppCompatActivity {
@@ -25,6 +29,7 @@ public class IndexIntegrantes extends AppCompatActivity {
     private RecyclerView recyclerView;
     private AdapterIntegrantes adapter;
     private ArrayList<Integrante> integrantes;
+    private ArrayList<Integrante> integranteFiltro;
     private Button btCadIntegrante, btVoltar;
 
     @Override
@@ -38,6 +43,7 @@ public class IndexIntegrantes extends AppCompatActivity {
         recyclerView = findViewById(R.id.rvIntegrantes);
         integrantes = new ArrayList<Integrante>();
         adapter = new AdapterIntegrantes(this, integrantes);
+
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(IndexIntegrantes.this,
                 LinearLayoutManager.VERTICAL, false);
@@ -56,8 +62,8 @@ public class IndexIntegrantes extends AppCompatActivity {
 
                                         for (DocumentChange dc : value.getDocumentChanges()){
                                             if(dc.getType() == DocumentChange.Type.ADDED){
-
-                                                integrantes.add(dc.getDocument().toObject(Integrante.class));
+                                                Integrante integrante = dc.getDocument().toObject(Integrante.class);
+                                                integrantes.add(integrante);
 
                                             }
                                             adapter.notifyDataSetChanged();
@@ -75,5 +81,7 @@ public class IndexIntegrantes extends AppCompatActivity {
             startActivity(i);
         });
 
+
     }
+
 }

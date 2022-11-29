@@ -16,6 +16,7 @@ public class ViewHolderIntegrante extends RecyclerView.ViewHolder {
 
     public ViewHolderIntegrante(@NonNull View itemView) {
         super(itemView);
+        imgIntegrante = itemView.findViewById(R.id.imgAvatarIntegrante);
         nome = itemView.findViewById(R.id.tvNomeIntegrante);
         conselho = itemView.findViewById(R.id.tvConselhoIntegrante);
     }
