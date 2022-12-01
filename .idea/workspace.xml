@@ -6,47 +6,26 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Image" />
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="info" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18f7d93b-29f2-409b-8bec-d6abbe540697" name="Changes" comment="Envio da imagem de integrante no cadastro">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_search_24.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/round_delete.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
+    <list default="true" id="18f7d93b-29f2-409b-8bec-d6abbe540697" name="Changes" comment="Corrigidos designs das telas de secretario">
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/votacoes-app.app.androidTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/votacoes-app.app.androidTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/votacoes-app.app.unitTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/votacoes-app.app.unitTest.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/CadastroIntegrante.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/CadastroIntegrante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/IndexIntegrantes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/IndexIntegrantes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/adapter/AdapterIntegrantes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/adapter/AdapterIntegrantes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/adapter/ViewHolderIntegrante.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/adapter/ViewHolderIntegrante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/model/Integrante.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/model/Integrante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_cadastro_integrante.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_cadastro_integrante.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_index_integrantes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_index_integrantes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_integrante.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_integrante.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/votacoes_app/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Nicolas\.android\avd\Pixel_4a_API_31.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\arust\.android\avd\Pixel_6_Pro_API_31.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -73,7 +52,6 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="layoutResourceFile" />
-        <option value="Class" />
         <option value="resourceFile" />
       </list>
     </option>
@@ -84,7 +62,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="task-01" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -103,16 +81,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Faculdade/DDM/recyclerView" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Nicolas\AndroidStudioProjects\votacoes-app\app" />
       <recent name="C:\Users\Nicolas\AndroidStudioProjects\votacoes-app" />
       <recent name="C:\Users\Nicolas\AndroidStudioProjects\votacoes-app\app\src\main\res\font" />
-    </key>
-    <key name="android.template.-2111453634">
-      <recent name="com.example.votacoes_app" />
     </key>
     <key name="android.template.-2107684349">
       <recent name="com.example.votacoes_app" />
@@ -223,42 +197,7 @@
       <option name="project" value="LOCAL" />
       <updated>1666647873582</updated>
     </task>
-    <task id="LOCAL-00006" summary="Criada tela de cadastro de integrante">
-      <created>1666656549855</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1666656549855</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Cadastro de integrante funcional + começo de listagem de integrantes">
-      <created>1668731354481</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1668731354481</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Index de integrante inicial (ajustes necessários)">
-      <created>1669169629298</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1669169629298</updated>
-    </task>
-    <task id="LOCAL-00009" summary="iniciado uso da camera p/ cadastro de integrante">
-      <created>1669396668651</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1669396668651</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Envio da imagem de integrante no cadastro">
-      <created>1669517146978</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1669517146978</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -320,11 +259,6 @@
     <MESSAGE value="Adicionadas dependencias para uso do Firebase" />
     <MESSAGE value="resolvido conflitos" />
     <MESSAGE value="Corrigidos designs das telas de secretario" />
-    <MESSAGE value="Criada tela de cadastro de integrante" />
-    <MESSAGE value="Cadastro de integrante funcional + começo de listagem de integrantes" />
-    <MESSAGE value="Index de integrante inicial (ajustes necessários)" />
-    <MESSAGE value="iniciado uso da camera p/ cadastro de integrante" />
-    <MESSAGE value="Envio da imagem de integrante no cadastro" />
-    <option name="LAST_COMMIT_MESSAGE" value="Envio da imagem de integrante no cadastro" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrigidos designs das telas de secretario" />
   </component>
 </project>
