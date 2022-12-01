@@ -13,17 +13,17 @@
 
 Client(Enviar Voto) -> Server(Recebe/Envia Confirmação de voto) -> Client
 
-Conteúdo: {
-            idIntegrante: ID do integrante logado;
-            idPauta: ID da pauta que está sendo votada;
-            parecer: Favor ou Contra (String)
+Conteúdo: { <br>
+            idIntegrante: ID do integrante logado; <br>
+            idPauta: ID da pauta que está sendo votada; <br>
+            parecer: Favor ou Contra (String) <br>
           }
 
 Descrição: Quando o voto é feito, está é a mensagem enviada ao servidor pelo VotingFacade
 
-Retorno: {
-            sucesso: true ou false;
-            message: String com uma mensagem de erro/sucesso
+Retorno: { <br>
+            sucesso: true ou false; <br>
+            message: String com uma mensagem de erro/sucesso <br>
           }
 
 ## Requisitos
