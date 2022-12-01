@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -25,6 +26,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -34,12 +37,13 @@ import com.google.firebase.storage.UploadTask;
 import java.io.ByteArrayOutputStream;
 import java.util.UUID;
 
+@SuppressWarnings("ALL")
 public class CadastroIntegrante extends AppCompatActivity {
 
     private Integrante integrante;
     private final int CAMERA_REQUEST_CODE = 2;
     private ImageView imgIntegrante;
-    private int tipo;
+    private int tipo = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +55,7 @@ public class CadastroIntegrante extends AppCompatActivity {
         EditText edCpf              =   findViewById(R.id.edCpf);
         EditText edNome             =   findViewById(R.id.edCadNome);
         EditText edConselho         =   findViewById(R.id.edCadConselho);
+        EditText edEmail            =   findViewById(R.id.edCadEmail);
         EditText edContato          =   findViewById(R.id.edCadContato);
         EditText edSenha            =   findViewById(R.id.edCadSenha);
 
@@ -64,19 +69,33 @@ public class CadastroIntegrante extends AppCompatActivity {
             String cpf      =   edCpf.getText().toString();
             String nome     =   edNome.getText().toString();
             String conselho =   edConselho.getText().toString();
+            String email    =   edEmail.getText().toString();
             String contato  =   edContato.getText().toString();
             String senha    =   edSenha.getText().toString();
 
-            if( cpf.isEmpty() || nome.isEmpty() || conselho.isEmpty()
-                    || contato.isEmpty() || senha.isEmpty()){
+            if( cpf.isEmpty() || nome.isEmpty() || conselho.isEmpty() ||
+                    email.isEmpty() || contato.isEmpty() || senha.isEmpty()){
                 Toast toast = Toast.makeText(getApplicationContext(),
                         "Preencha todos os campos!",
                         Toast.LENGTH_SHORT);
                 toast.show();
             } else {
 
-                integrante = new Integrante(cpf, nome, conselho, contato, tipo, senha);
-                salvarImagem(integrante);
+                integrante = new Integrante(cpf, nome, conselho, email, contato, tipo, senha);
+                FirebaseAuth.getInstance()
+                        .createUserWithEmailAndPassword(email, senha)
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if(task.isSuccessful()){
+                                    integrante.setUserId(task.getResult().getUser().getUid());
+                                } else {
+                                    Log.i("Firebase Auth: ", task.getException().toString());
+                                }
+                            }
+                        });
+
+                criaUsuario(integrante);
             }
 
         });
@@ -86,9 +105,8 @@ public class CadastroIntegrante extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked) {
                     tipo = 1;
-                } else {
-                    tipo = 2;
                 }
+
             }
         });
 
@@ -121,11 +139,10 @@ public class CadastroIntegrante extends AppCompatActivity {
 
     }
 
-    protected void salvarImagem(Integrante integrante) {
+    protected void criaUsuario(Integrante integrante) {
         String fileName = UUID.randomUUID().toString();
         StorageReference storageRef = FirebaseStorage.getInstance().
                 getReference("/images/" + fileName);
-
 
         imgIntegrante.setDrawingCacheEnabled(true);
         imgIntegrante.buildDrawingCache();
@@ -153,19 +170,14 @@ public class CadastroIntegrante extends AppCompatActivity {
                     public void onSuccess(Uri uri) {
                         Log.i("Imagem URL:", uri.toString());
                         integrante.setImgageId(uri.toString());
-                        cadastrarIntegrante(integrante);
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.i("Imagem erro:", e.getMessage().toString());
+                        salvarUsuario(integrante);
                     }
                 });
             }
         });
     }
 
-    private void cadastrarIntegrante(Integrante i) {
+    private void salvarUsuario(Integrante i) {
 
         FirebaseFirestore.getInstance()
                 .collection("integrantes")
@@ -190,5 +202,6 @@ public class CadastroIntegrante extends AppCompatActivity {
                     }
                 });
     }
+
 
 }

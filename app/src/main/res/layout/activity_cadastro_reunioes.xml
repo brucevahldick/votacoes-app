@@ -74,12 +74,15 @@
             app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <EditText
+        <com.santalu.maskara.widget.MaskEditText
             android:id="@+id/edCadHora"
             android:layout_width="350dp"
             android:layout_height="45dp"
             android:layout_marginBottom="45dp"
             android:background="@drawable/round_edit_text"
+            app:mask="__:__"
+            app:maskCharacter="_"
+            app:maskStyle="normal"
             android:ems="10"
             android:inputType="textPersonName"
             android:paddingLeft="15dp"
@@ -88,12 +91,15 @@
             app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <EditText
+        <com.santalu.maskara.widget.MaskEditText
             android:id="@+id/edCadData"
             android:layout_width="350dp"
             android:layout_height="45dp"
             android:layout_marginBottom="45dp"
             android:background="@drawable/round_edit_text"
+            app:mask="__/__/__"
+            app:maskCharacter="_"
+            app:maskStyle="normal"
             android:ems="10"
             android:inputType="textPersonName"
             android:paddingLeft="15dp"
@@ -117,7 +123,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tvCadastroIntegrante"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"

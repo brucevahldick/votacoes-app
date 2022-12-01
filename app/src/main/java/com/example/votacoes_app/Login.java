@@ -1,5 +1,6 @@
 package com.example.votacoes_app;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,29 +9,74 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.votacoes_app.model.Integrante;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.List;
+
 public class Login extends AppCompatActivity {
+
+    Button btLogin;
+    EditText edEmail, edSenha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button btLogin = findViewById(R.id.btLogin);
+
+        btLogin                 = findViewById(R.id.btLogin);
 
         btLogin.setOnClickListener(v -> {
-            EditText cpfFild = (EditText) findViewById(R.id.inputCpf);
-            EditText senhaFild = (EditText) findViewById(R.id.inputSenha);
+             edEmail            =   findViewById(R.id.edEmail);
+             edSenha            =   findViewById(R.id.edSenha);
 
-            String txtCpf = cpfFild.getText().toString();
-            String txtSenha = senhaFild.getText().toString();
+            String email        =   edEmail.getText().toString();
+            String senha        =   edSenha.getText().toString();
 
-            //TO-DO: aplicar verificação de login e cpf quando o cadastro de integrantes estiver pronto
-            if(txtCpf.equals("123") && txtSenha.equals("123")) {
-                Intent i = new Intent(Login.this, TelaInicial.class);
-                startActivity(i);
-            }else{
-                Toast.makeText(getApplicationContext(),"CPF ou senha incorretos",Toast.LENGTH_SHORT).show();
-            }
+            FirebaseAuth.getInstance()
+                    .signInWithEmailAndPassword(email, senha)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            FirebaseFirestore.getInstance()
+                                    .collection("integrantes")
+                                    .whereEqualTo("userId", task.getResult().getUser().getUid())
+                                    .limit(1)
+                                    .get()
+                                    .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                        @Override
+                                        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                            List<Integrante> usuario = queryDocumentSnapshots.toObjects(Integrante.class);
+                                            Integrante i = usuario.get(0);
+
+                                            if(i.getTipo() == 1){
+                                                Intent intent = new Intent(Login.this, TelaInicial.class);
+                                                startActivity(intent);
+                                            } else {
+                                                Intent intent = new Intent(Login.this, IndexReunioes.class);
+                                                startActivity(intent);
+                                            }
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast toast = Toast.makeText(getApplicationContext(),
+                                                    "Dados inválidos! Verifque e-mail ou senha",
+                                                    Toast.LENGTH_LONG);
+                                            toast.show();
+                                        }
+                                    });
+                        }
+                    });
         });
     }
 }
