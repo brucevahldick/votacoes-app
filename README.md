@@ -13,8 +13,6 @@
 
 Client(Enviar Voto) -> Server(Recebe/Envia Confirmação de voto) -> Client
 
-Client(Convida) -> Server(Recebe/Envia Confirmação de voto) -> Client
-
 RF01 - O sistema deve permitir que seja possível criar um grupo de votantes
 RF02 - O sistema deve permitir que seja possível iniciar uma votação com os participantes de um grupo
 RF03 - O sistema deve permitir que seja possível para todos os participantes acompanhar os resultados preliminares em tempo real
