@@ -28,8 +28,6 @@ Retorno: {
 
 ## Requisitos
 
-RF01 - O sistema deve permitir que seja possível criar um grupo de votantes 
-
-RF02 - O sistema deve permitir que seja possível iniciar uma votação com os participantes de um grupo 
-
+RF01 - O sistema deve permitir que seja possível criar um grupo de votantes <br>
+RF02 - O sistema deve permitir que seja possível iniciar uma votação com os participantes de um grupo <br>
 RF03 - O sistema deve permitir que seja possível para todos os participantes acompanhar os resultados preliminares em tempo real 
