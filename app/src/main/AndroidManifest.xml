@@ -15,6 +15,13 @@
         android:theme="@style/Theme.Votacoesapp"
         tools:targetApi="31">
         <activity
+            android:name=".CadastroReunioes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".CadastroIntegrante"
             android:exported="false">
             <meta-data
