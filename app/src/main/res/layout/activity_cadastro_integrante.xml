@@ -45,7 +45,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.santalu.maskara.widget.MaskEditText
-            android:id="@+id/edCpf"
+            android:id="@+id/edCadCpf"
             android:layout_width="350dp"
             android:layout_height="45dp"
             android:layout_marginBottom="40dp"
@@ -76,16 +76,16 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/tvCadCpf"
+            android:id="@+id/tvCadLocal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
             android:fontFamily="@font/roboto_bold"
             android:text="CPF:"
-            app:layout_constraintBottom_toTopOf="@+id/edCpf"
-            app:layout_constraintEnd_toEndOf="@+id/edCpf"
+            app:layout_constraintBottom_toTopOf="@+id/edCadCpf"
+            app:layout_constraintEnd_toEndOf="@+id/edCadCpf"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/edCpf" />
+            app:layout_constraintStart_toStartOf="@+id/edCadCpf" />
 
         <TextView
             android:id="@+id/tvCadNome"

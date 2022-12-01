@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/index_bg"
+    tools:context=".CadastroReunioes">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btSalvarReunioes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/round_index_buttons"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Salvar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btVoltarCadReuniao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/round_index_buttons"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Voltar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="397dp"
+        android:layout_height="574dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/round_home"
+        app:layout_constraintBottom_toTopOf="@+id/btSalvarReunioes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/edCadSec"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/round_edit_text"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/edCadConselhoReu"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="45dp"
+            android:background="@drawable/round_edit_text"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/edCadSec"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/edCadHora"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="45dp"
+            android:background="@drawable/round_edit_text"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/spQuorum"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/edCadData"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="45dp"
+            android:background="@drawable/round_edit_text"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/edCadHora"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/edCadLocal"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="45dp"
+            android:background="@drawable/round_edit_text"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/edCadData"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Cadastro de Reuniões"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCadLocal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Local:"
+            app:layout_constraintBottom_toTopOf="@+id/edCadLocal"
+            app:layout_constraintStart_toStartOf="@+id/edCadLocal" />
+
+        <TextView
+            android:id="@+id/tvCadData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Data:"
+            app:layout_constraintBottom_toTopOf="@+id/edCadData"
+            app:layout_constraintStart_toStartOf="@+id/edCadData" />
+
+        <TextView
+            android:id="@+id/tvCadHora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Hora:"
+            app:layout_constraintBottom_toTopOf="@+id/edCadHora"
+            app:layout_constraintStart_toStartOf="@+id/edCadHora" />
+
+        <TextView
+            android:id="@+id/tvCadQuorum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Quórum Minimo:"
+            app:layout_constraintBottom_toTopOf="@+id/spQuorum"
+            app:layout_constraintEnd_toEndOf="@+id/spQuorum"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/spQuorum" />
+
+        <TextView
+            android:id="@+id/tvCadConselhoReu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Conselho:"
+            app:layout_constraintBottom_toTopOf="@+id/edCadConselhoReu"
+            app:layout_constraintStart_toStartOf="@+id/edCadConselhoReu" />
+
+        <TextView
+            android:id="@+id/tvCadSec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Secretário:"
+            app:layout_constraintBottom_toTopOf="@+id/edCadSec"
+            app:layout_constraintStart_toStartOf="@+id/edCadSec" />
+
+        <Spinner
+            android:id="@+id/spQuorum"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="45dp"
+            android:background="@drawable/round_edit_text"
+            android:dropDownSelector="@drawable/ic_baseline_arrow_drop_down_24"
+            android:popupBackground="@android:color/transparent"
+            app:circularflow_defaultRadius="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/edCadConselhoReu"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

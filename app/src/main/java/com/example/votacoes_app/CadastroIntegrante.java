@@ -9,12 +9,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -29,9 +27,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.util.UUID;
 
 public class CadastroIntegrante extends AppCompatActivity {
@@ -47,7 +43,7 @@ public class CadastroIntegrante extends AppCompatActivity {
 
         imgIntegrante   = findViewById(R.id.imgCadIntegrante);
 
-        EditText edCpf              =   findViewById(R.id.edCpf);
+        EditText edCpf              =   findViewById(R.id.edCadCpf);
         EditText edNome             =   findViewById(R.id.edCadNome);
         EditText edConselho         =   findViewById(R.id.edCadConselho);
         EditText edContato          =   findViewById(R.id.edCadContato);

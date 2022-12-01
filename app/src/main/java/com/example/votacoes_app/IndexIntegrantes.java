@@ -35,7 +35,7 @@ public class IndexIntegrantes extends AppCompatActivity {
         btCadIntegrante = findViewById(R.id.btCadIntegrante);
         btVoltar = findViewById(R.id.btIndexVoltar);
 
-        recyclerView = findViewById(R.id.rvIntegrantes);
+        recyclerView = findViewById(R.id.rvReunioes);
         integrantes = new ArrayList<Integrante>();
         adapter = new AdapterIntegrantes(this, integrantes);
 
