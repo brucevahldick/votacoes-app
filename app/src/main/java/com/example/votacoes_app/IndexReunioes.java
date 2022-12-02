@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 public class IndexReunioes extends AppCompatActivity {
@@ -14,6 +15,10 @@ public class IndexReunioes extends AppCompatActivity {
         setContentView(R.layout.activity_index_reunioes);
 
         Button btCadReuniao = findViewById(R.id.btCadReuniao);
+
+        if(Login.usuarioLogado.getTipo() == 2){
+            btCadReuniao.setVisibility(View.GONE);
+        }
 
         btCadReuniao.setOnClickListener(v ->{
             Intent i = new Intent(IndexReunioes.this, CadastroReunioes.class);

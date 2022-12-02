@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -22,6 +23,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.List;
 
 public class Login extends AppCompatActivity {
+
+    public static Integrante usuarioLogado;
 
     Button btLogin;
     EditText edEmail, edSenha;
@@ -43,21 +46,21 @@ public class Login extends AppCompatActivity {
 
             FirebaseAuth.getInstance()
                     .signInWithEmailAndPassword(email, senha)
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
+                        public void onSuccess(AuthResult authResult) {
                             FirebaseFirestore.getInstance()
                                     .collection("integrantes")
-                                    .whereEqualTo("userId", task.getResult().getUser().getUid())
+                                    .whereEqualTo("userId", authResult.getUser().getUid())
                                     .limit(1)
                                     .get()
                                     .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                                         @Override
                                         public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                                             List<Integrante> usuario = queryDocumentSnapshots.toObjects(Integrante.class);
-                                            Integrante i = usuario.get(0);
-
-                                            if(i.getTipo() == 1){
+                                            Integrante integrante = usuario.get(0);
+                                            usuarioLogado = integrante;
+                                            if(integrante.getTipo() == 1){
                                                 Intent intent = new Intent(Login.this, TelaInicial.class);
                                                 startActivity(intent);
                                             } else {
@@ -65,16 +68,17 @@ public class Login extends AppCompatActivity {
                                                 startActivity(intent);
                                             }
                                         }
-                                    })
-                                    .addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            Toast toast = Toast.makeText(getApplicationContext(),
-                                                    "Dados inválidos! Verifque e-mail ou senha",
-                                                    Toast.LENGTH_LONG);
-                                            toast.show();
-                                        }
                                     });
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.i("Login: ", e.getMessage().toString());
+                            Toast toast = Toast.makeText(getApplicationContext(),
+                                    "Dados inválidos! Verifque e-mail ou senha",
+                                    Toast.LENGTH_LONG);
+                            toast.show();
                         }
                     });
         });
