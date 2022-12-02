@@ -13,21 +13,21 @@
 
 Client(Enviar Voto) -> Server(Recebe/Envia Confirmação de voto) -> Client
 
-Conteúdo: {
-            idIntegrante: ID do integrante logado;
-            idPauta: ID da pauta que está sendo votada;
-            parecer: Favor ou Contra (String)
+Conteúdo: { <br>
+            idIntegrante: ID do integrante logado; <br>
+            idPauta: ID da pauta que está sendo votada; <br>
+            parecer: Favor ou Contra (String) <br>
           }
 
 Descrição: Quando o voto é feito, está é a mensagem enviada ao servidor pelo VotingFacade
 
-Retorno: {
-            sucesso: true ou false;
-            message: String com uma mensagem de erro/sucesso
+Retorno: { <br>
+            sucesso: true ou false; <br>
+            message: String com uma mensagem de erro/sucesso <br>
           }
 
 ## Requisitos
 
-RF01 - O sistema deve permitir que seja possível criar um grupo de votantes
-RF02 - O sistema deve permitir que seja possível iniciar uma votação com os participantes de um grupo
-RF03 - O sistema deve permitir que seja possível para todos os participantes acompanhar os resultados preliminares em tempo real
+RF01 - O sistema deve permitir que seja possível criar um grupo de votantes <br>
+RF02 - O sistema deve permitir que seja possível iniciar uma votação com os participantes de um grupo <br>
+RF03 - O sistema deve permitir que seja possível para todos os participantes acompanhar os resultados preliminares em tempo real 
