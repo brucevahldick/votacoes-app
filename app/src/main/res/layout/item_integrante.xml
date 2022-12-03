@@ -41,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="8dp"
+                android:background="@drawable/border_right_item"
                 android:layout_marginTop="8dp"
                 android:text="TextView" />
 

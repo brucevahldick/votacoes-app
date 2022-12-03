@@ -49,7 +49,7 @@ public class AdapterIntegrantes extends RecyclerView.Adapter<ViewHolderIntegrant
         holder.conselho.setText(integrante.getConselho());
         Picasso.get()
                 .load(integrante.getImgageId())
-                .fit()
+                .resize(60,60)
                 .centerCrop()
                 .into(holder.imgIntegrante);
     }
