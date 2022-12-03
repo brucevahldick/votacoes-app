@@ -9,8 +9,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
 
 import com.example.votacoes_app.adapter.AdapterIntegrantes;
 import com.example.votacoes_app.model.Integrante;
@@ -19,8 +17,6 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
-
-import org.checkerframework.checker.units.qual.A;
 
 import java.util.ArrayList;
 
@@ -40,7 +36,7 @@ public class IndexIntegrantes extends AppCompatActivity {
         btCadIntegrante = findViewById(R.id.btCadIntegrante);
         btVoltar = findViewById(R.id.btIndexVoltar);
 
-        recyclerView = findViewById(R.id.rvReunioes);
+        recyclerView = findViewById(R.id.rvIntegrantes);
         integrantes = new ArrayList<Integrante>();
         adapter = new AdapterIntegrantes(this, integrantes);
 

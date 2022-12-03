@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">votacoes-app</string>
+    <string name="conselho">Conselho</string>
+    <string name="data">Data</string>
+    <string name="hora">Hora</string>
+    <string name="op_es">Opções</string>
 </resources>
