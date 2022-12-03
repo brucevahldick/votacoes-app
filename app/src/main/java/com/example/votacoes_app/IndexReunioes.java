@@ -26,11 +26,11 @@ public class IndexReunioes extends AppCompatActivity {
         setContentView(R.layout.activity_index_reunioes);
 
         Button btCadReuniao = findViewById(R.id.btCadReuniao);
-        Button btVoltar = findViewById(R.id.btVoltarIndexReuniao);
+        Button btVoltar     = findViewById(R.id.btVoltarIndexReuniao);
 
-        RecyclerView recyclerView = findViewById(R.id.rvReunioes);
+        RecyclerView recyclerView   = findViewById(R.id.rvReunioes);
         ArrayList<Reuniao> reunioes = new ArrayList<Reuniao>();
-        AdapterReunioes adapter = new AdapterReunioes(this, reunioes);
+        AdapterReunioes adapter     = new AdapterReunioes(this, reunioes);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(IndexReunioes.this,
                 LinearLayoutManager.VERTICAL, false);

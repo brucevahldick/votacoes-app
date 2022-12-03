@@ -59,6 +59,7 @@ public class IndexIntegrantes extends AppCompatActivity {
                                         for (DocumentChange dc : value.getDocumentChanges()){
                                             if(dc.getType() == DocumentChange.Type.ADDED){
                                                 Integrante integrante = dc.getDocument().toObject(Integrante.class);
+                                                integrante.setId(dc.getDocument().getId());
                                                 integrantes.add(integrante);
 
                                             }

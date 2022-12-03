@@ -2,16 +2,8 @@ package com.example.votacoes_app.model;
 
 public class Integrante {
 
-    private String imgageId;
-    private String userId;
-
-    private String cpf;
-    private String nome;
-    private String conselho;
-    private String email;
-    private String contato;
+    private String id, imgageId, userId, cpf, nome, conselho, email, contato,senha;
     private int tipo;
-    private String senha;
 
     public Integrante() {
     }
@@ -24,6 +16,14 @@ public class Integrante {
         this.contato = contato;
         this.tipo = tipo;
         this.senha = senha;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getImgageId() {

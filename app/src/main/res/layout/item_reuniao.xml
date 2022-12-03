@@ -26,34 +26,37 @@
 
             <TextView
                 android:id="@+id/tvNomeConselho"
-                android:layout_width="50dp"
+                android:layout_width="45dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_weight="1"
+                android:background="@drawable/border_right_item"
                 android:padding="8dp"
                 android:text="@string/conselho" />
 
             <TextView
                 android:id="@+id/tvNomeData"
-                android:layout_width="50dp"
+                android:layout_width="45dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_weight="1"
+                android:background="@drawable/border_right_item"
                 android:padding="8dp"
                 android:text="@string/data" />
 
             <TextView
                 android:id="@+id/tvNomeHora"
-                android:layout_width="50dp"
+                android:layout_width="45dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_weight="1"
+                android:background="@drawable/border_right_item"
                 android:padding="8dp"
                 android:text="@string/hora" />
 
             <TextView
                 android:id="@+id/tvNomeOpcoes"
-                android:layout_width="50dp"
+                android:layout_width="45dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_weight="1"

@@ -27,27 +27,27 @@ public class CadastroReunioes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_reunioes);
 
-        Spinner spQuorum = findViewById(R.id.spQuorum);
-        String[] items = new String[]{"Maioria simples", "Maioria qualificada 3/5", "Maioria qualificada 2/3"};
+        Spinner spQuorum             = findViewById(R.id.spQuorum);
+        String[] items               = new String[]{"Maioria simples", "Maioria qualificada 3/5", "Maioria qualificada 2/3"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         spQuorum.setAdapter(adapter);
 
-        EditText edLocalReu = findViewById(R.id.edCadLocal);
-        EditText edData = findViewById(R.id.edCadData);
-        EditText edHora = findViewById(R.id.edCadHora);
+        EditText edLocalReu       = findViewById(R.id.edCadLocal);
+        EditText edData           = findViewById(R.id.edCadData);
+        EditText edHora           = findViewById(R.id.edCadHora);
         EditText edCadConselhoReu = findViewById(R.id.edCadConselhoReu);
-        EditText edCadSec = findViewById(R.id.edCadSec);
+        EditText edCadSec         = findViewById(R.id.edCadSec);
 
         Button btSalvar = findViewById(R.id.btSalvarReunioes);
         Button btVoltar = findViewById(R.id.btVoltarCadReuniao);
 
         btSalvar.setOnClickListener(v -> {
 
-            String local = edLocalReu.getText().toString();
-            String data = edData.getText().toString();
-            String hora = edHora.getText().toString();
-            String quorum = spQuorum.getSelectedItem().toString();
-            String conselho = edCadConselhoReu.getText().toString();
+            String local      = edLocalReu.getText().toString();
+            String data       = edData.getText().toString();
+            String hora       = edHora.getText().toString();
+            String quorum     = spQuorum.getSelectedItem().toString();
+            String conselho   = edCadConselhoReu.getText().toString();
             String secretario = edCadSec.getText().toString();
 
             if (local.isEmpty() || data.isEmpty() || hora.isEmpty()
