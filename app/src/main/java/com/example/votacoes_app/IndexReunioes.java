@@ -50,6 +50,7 @@ public class IndexReunioes extends AppCompatActivity {
                         for (DocumentChange dc : value.getDocumentChanges()){
                             if(dc.getType() == DocumentChange.Type.ADDED){
                                 Reuniao reuniao = dc.getDocument().toObject(Reuniao.class);
+                                reuniao.setId(dc.getDocument().getId());
                                 reunioes.add(reuniao);
 
                             }

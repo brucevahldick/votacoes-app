@@ -2,13 +2,7 @@ package com.example.votacoes_app.model;
 
 public class Reuniao {
 
-    private String conselho;
-    private String data;
-    private String hora;
-    private String local;
-    private String quorum;
-    private String secretario;
-
+    private String id, conselho, data, hora, local, quorum, secretario;
     public Reuniao() {
     }
 
@@ -27,6 +21,14 @@ public class Reuniao {
 
     public void setConselho(String conselho) {
         this.conselho = conselho;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getData() {
