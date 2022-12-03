@@ -17,6 +17,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import org.json.JSONObject;
+
+import java.util.HashMap;
 
 public class CadastroReunioes extends AppCompatActivity {
 
@@ -121,6 +124,11 @@ public class CadastroReunioes extends AppCompatActivity {
     private void alterarReuniao(Reuniao r) {
         EditText edCadSec = findViewById(R.id.edCadSec);
         edCadSec.setText(reuniao.getId());
+
+        FirebaseFirestore.getInstance()
+                .collection("reuniao")
+                .document(r.getId())
+                .set(r);
     }
 
     private void voltarIndex(){
