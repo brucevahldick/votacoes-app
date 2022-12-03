@@ -1,6 +1,8 @@
 package com.example.votacoes_app.model;
 
-public class Reuniao {
+import java.io.Serializable;
+
+public class Reuniao implements Serializable {
 
     private String id, conselho, data, hora, local, quorum, secretario;
     public Reuniao() {

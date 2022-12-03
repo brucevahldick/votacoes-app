@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
         Button btEntrar = findViewById(R.id.btEntrar);
 
         btEntrar.setOnClickListener(v -> {
-            //Intent i = new Intent(MainActivity.this, Login.class);
             Intent i = new Intent(MainActivity.this, RedirectCards.class);
             startActivity(i);
         });

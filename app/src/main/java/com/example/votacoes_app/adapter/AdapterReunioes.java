@@ -1,13 +1,19 @@
 package com.example.votacoes_app.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.votacoes_app.CadastroReunioes;
+import com.example.votacoes_app.MainActivity;
 import com.example.votacoes_app.R;
+import com.example.votacoes_app.RedirectCards;
 import com.example.votacoes_app.model.Integrante;
 import com.example.votacoes_app.model.Reuniao;
 import com.squareup.picasso.Picasso;
@@ -38,7 +44,18 @@ public class AdapterReunioes extends RecyclerView.Adapter<ViewHolderReunioes>{
         holder.conselho.setText(reuniao.getConselho());
         holder.data.setText(reuniao.getData());
         holder.hora.setText(reuniao.getHora());
-        holder.opcoes.setText("aaaa");
+
+        holder.update.setOnClickListener(v -> {
+            Intent intent = new Intent(context, CadastroReunioes.class);
+            intent.putExtra("Reuniao", reuniao);
+            context.startActivity(intent);
+        });
+
+        holder.remove.setOnClickListener(v -> {
+            Intent intent = new Intent(context, CadastroReunioes.class);
+            intent.putExtra("Reuniao", reuniao);
+            context.startActivity(intent);
+        });
     }
 
     @Override
@@ -46,3 +63,17 @@ public class AdapterReunioes extends RecyclerView.Adapter<ViewHolderReunioes>{
         return reunioes.size();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
