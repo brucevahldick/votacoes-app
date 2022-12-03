@@ -41,6 +41,23 @@ public class CadastroReunioes extends AppCompatActivity {
         Button btSalvar = findViewById(R.id.btSalvarReunioes);
         Button btVoltar = findViewById(R.id.btVoltarCadReuniao);
 
+        Reuniao reuUpdade = reuniao = (Reuniao) getIntent().getSerializableExtra("Reuniao");
+        boolean isUpdate = false;
+        if(reuUpdade !=null){
+            this.reuniao = reuUpdade;
+
+            isUpdate = true;
+
+            edLocalReu.setText(reuniao.getLocal());
+            edData.setText(reuniao.getData());
+            edHora.setText(reuniao.getHora());
+            edCadConselhoReu.setText(reuniao.getConselho());
+            edCadSec.setText(reuniao.getSecretario());
+
+            btSalvar.setText("Alterar");
+        }
+
+        boolean finalIsUpdate = isUpdate;
         btSalvar.setOnClickListener(v -> {
 
             String local      = edLocalReu.getText().toString();
@@ -57,19 +74,27 @@ public class CadastroReunioes extends AppCompatActivity {
                         Toast.LENGTH_SHORT);
                 toast.show();
             } else {
-                reuniao = new Reuniao(conselho, data, hora, local, quorum, secretario);
-                cadastrarReuniao(reuniao);
+
+                if(finalIsUpdate) {
+                    reuniao.setConselho(conselho);
+                    reuniao.setData(data);
+                    reuniao.setHora(hora);
+                    reuniao.setQuorum(quorum);
+                    reuniao.setSecretario(secretario);
+                    reuniao.setLocal(local);
+
+                    alterarReuniao(reuniao);
+                }else {
+                    reuniao = new Reuniao(conselho, data, hora, local, quorum, secretario);
+                    cadastrarReuniao(reuniao);
+                }
             }
         });
 
         btVoltar.setOnClickListener(v -> voltarIndex());
-
-
     }
 
-
     private void cadastrarReuniao(Reuniao r) {
-
         FirebaseFirestore.getInstance()
                 .collection("reuniao")
                 .add(r)
@@ -91,6 +116,11 @@ public class CadastroReunioes extends AppCompatActivity {
                         toast.show();
                     }
                 });
+    }
+
+    private void alterarReuniao(Reuniao r) {
+        EditText edCadSec = findViewById(R.id.edCadSec);
+        edCadSec.setText(reuniao.getId());
     }
 
     private void voltarIndex(){

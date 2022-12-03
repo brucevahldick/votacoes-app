@@ -26,8 +26,8 @@
 
             <TextView
                 android:id="@+id/tvNomeConselho"
-                android:layout_width="45dp"
-                android:layout_height="wrap_content"
+                android:layout_width="15dp"
+                android:layout_height="38dp"
                 android:layout_marginTop="8dp"
                 android:layout_weight="1"
                 android:background="@drawable/border_right_item"
@@ -36,8 +36,8 @@
 
             <TextView
                 android:id="@+id/tvNomeData"
-                android:layout_width="45dp"
-                android:layout_height="wrap_content"
+                android:layout_width="15dp"
+                android:layout_height="38dp"
                 android:layout_marginTop="8dp"
                 android:layout_weight="1"
                 android:background="@drawable/border_right_item"
@@ -46,22 +46,43 @@
 
             <TextView
                 android:id="@+id/tvNomeHora"
-                android:layout_width="45dp"
-                android:layout_height="wrap_content"
+                android:layout_width="15dp"
+                android:layout_height="38dp"
                 android:layout_marginTop="8dp"
                 android:layout_weight="1"
                 android:background="@drawable/border_right_item"
                 android:padding="8dp"
                 android:text="@string/hora" />
 
-            <TextView
-                android:id="@+id/tvNomeOpcoes"
-                android:layout_width="45dp"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_width="15dp"
+                android:layout_height="38dp"
                 android:layout_marginTop="8dp"
                 android:layout_weight="1"
-                android:padding="8dp"
-                android:text="@string/op_es" />
+                android:orientation="horizontal"
+                android:padding="6dp">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabRemove"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    app:backgroundTint="@color/red_delete"
+                    app:srcCompat="@drawable/round_delete" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabUpdate"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    app:backgroundTint="@color/yellow_update"
+                    app:srcCompat="@drawable/round_delete" />
+            </LinearLayout>
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
