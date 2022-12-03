@@ -36,7 +36,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvReunioes"
+        android:id="@+id/rvIntegrantes"
         android:layout_width="397dp"
         android:layout_height="513dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -53,7 +53,7 @@
         android:text="Integrantes Cadastrados"
         android:textColor="@color/white"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/rvReunioes"
+        app:layout_constraintBottom_toTopOf="@+id/rvIntegrantes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
