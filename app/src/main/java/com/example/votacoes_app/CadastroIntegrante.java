@@ -21,6 +21,7 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.example.votacoes_app.adapter.LoadingDialog;
 import com.example.votacoes_app.model.Integrante;
 import com.example.votacoes_app.model.Reuniao;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -47,6 +48,7 @@ public class CadastroIntegrante extends AppCompatActivity {
     private final int CAMERA_REQUEST_CODE = 2;
     private ImageView imgIntegrante;
     private int tipo = 2;
+    private LoadingDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +68,8 @@ public class CadastroIntegrante extends AppCompatActivity {
         Button btVoltar             =   findViewById(R.id.btVoltarIntegrante);
 
         Switch swTipo               =   findViewById(R.id.swSecretario);
+
+        loadingDialog               =   new LoadingDialog(CadastroIntegrante.this);
 
         Integrante inteUpdate = integrante = (Integrante) getIntent().getSerializableExtra("Integrante");
         boolean isUpdate = false;
@@ -120,11 +124,14 @@ public class CadastroIntegrante extends AppCompatActivity {
                 integrante.setContato(contato);
                 integrante.setSenha(senha);
 
+                loadingDialog.startLoadingAnimation();
+
                 alterarImagem(integrante, emailAntigo, senhaAntiga);
 
             } else {
 
                 integrante = new Integrante(cpf, nome, conselho, email, contato, tipo, senha);
+                loadingDialog.startLoadingAnimation();
                 FirebaseAuth.getInstance()
                         .createUserWithEmailAndPassword(email, senha)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -228,6 +235,7 @@ public class CadastroIntegrante extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentReference> task) {
+                        loadingDialog.dismissDialog();
                         Toast toast = Toast.makeText(getApplicationContext(),
                                 "Integrante cadastrado com sucesso!",
                                 Toast.LENGTH_SHORT);
@@ -300,6 +308,7 @@ public class CadastroIntegrante extends AppCompatActivity {
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
+                                        loadingDialog.dismissDialog();
                                         Toast toast = Toast.makeText(getApplicationContext(),
                                                 "Integrante alterado com sucesso!",
                                                 Toast.LENGTH_SHORT);
