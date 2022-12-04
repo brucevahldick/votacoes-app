@@ -122,9 +122,6 @@ public class CadastroReunioes extends AppCompatActivity {
     }
 
     private void alterarReuniao(Reuniao r) {
-        EditText edCadSec = findViewById(R.id.edCadSec);
-        edCadSec.setText(reuniao.getId());
-
         FirebaseFirestore.getInstance()
                 .collection("reuniao")
                 .document(r.getId())
