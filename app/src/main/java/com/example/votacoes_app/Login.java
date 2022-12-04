@@ -34,7 +34,6 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
         btLogin                 = findViewById(R.id.btLogin);
 
         btLogin.setOnClickListener(v -> {

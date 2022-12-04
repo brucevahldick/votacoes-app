@@ -15,6 +15,15 @@
         android:theme="@style/Theme.Votacoesapp"
         tools:targetApi="31">
         <activity
+            android:name=".BaseReuniaoActivity"
+            android:exported="false"
+            android:label="@string/title_activity_base_reuniao"
+            android:theme="@style/Theme.Votacoesapp.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".CadastroReunioes"
             android:exported="false">
             <meta-data
