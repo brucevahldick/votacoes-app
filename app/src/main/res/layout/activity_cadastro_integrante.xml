@@ -26,9 +26,11 @@
         android:layout_height="569dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/round_home"
+        app:layout_constraintBottom_toTopOf="@+id/btSalvarIntegrante"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <EditText
             android:id="@+id/edCadEmail"
@@ -65,7 +67,6 @@
             android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

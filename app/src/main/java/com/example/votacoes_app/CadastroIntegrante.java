@@ -22,17 +22,20 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.votacoes_app.model.Integrante;
+import com.example.votacoes_app.model.Reuniao;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.util.UUID;
@@ -64,6 +67,32 @@ public class CadastroIntegrante extends AppCompatActivity {
 
         Switch swTipo               =   findViewById(R.id.swSecretario);
 
+        Integrante inteUpdate = integrante = (Integrante) getIntent().getSerializableExtra("Integrante");
+        boolean isUpdate = false;
+
+        if(inteUpdate != null){
+            this.integrante = inteUpdate;
+
+            isUpdate = true;
+
+            Picasso.get().load(integrante.getImgageId())
+                            .fit()
+                            .centerCrop()
+                            .into(imgIntegrante);
+
+            edCpf.setText(integrante.getCpf());
+            edNome.setText(integrante.getNome());
+            edConselho.setText(integrante.getConselho());
+            edEmail.setText(integrante.getEmail());
+            edContato.setText(integrante.getContato());
+            edSenha.setText(integrante.getSenha());
+
+
+            btSalvar.setText("Alterar");
+        }
+
+        boolean finalIsUpdate = isUpdate;
+
         btSalvar.setOnClickListener(v -> {
 
             String cpf      =   edCpf.getText().toString();
@@ -79,6 +108,20 @@ public class CadastroIntegrante extends AppCompatActivity {
                         "Preencha todos os campos!",
                         Toast.LENGTH_SHORT);
                 toast.show();
+            } else if(finalIsUpdate) {
+
+                String emailAntigo = integrante.getEmail();
+                String senhaAntiga = integrante.getSenha();
+
+                integrante.setCpf(cpf);
+                integrante.setNome(nome);
+                integrante.setEmail(email);
+                integrante.setConselho(conselho);
+                integrante.setContato(contato);
+                integrante.setSenha(senha);
+
+                alterarImagem(integrante, emailAntigo, senhaAntiga);
+
             } else {
 
                 integrante = new Integrante(cpf, nome, conselho, email, contato, tipo, senha);
@@ -203,5 +246,83 @@ public class CadastroIntegrante extends AppCompatActivity {
                 });
     }
 
+    private void alterarImagem(Integrante integrante, String email, String senha) {
+        String fileName = UUID.randomUUID().toString();
+        StorageReference storageRef = FirebaseStorage.getInstance().
+                getReference("/images/" + fileName);
 
+        imgIntegrante.setDrawingCacheEnabled(true);
+        imgIntegrante.buildDrawingCache();
+
+        Bitmap bitmap = ((BitmapDrawable) imgIntegrante.getDrawable()).getBitmap();
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+
+        byte[] data = baos.toByteArray();
+
+        UploadTask uploadTask = storageRef.putBytes(data);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "Falha ao enviar imagem",
+                        Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        Log.i("Imagem URL:", uri.toString());
+                        integrante.setImgageId(uri.toString());
+                        alterarDadosIntegrante(integrante, email, senha);
+                    }
+                });
+            }
+        });
+    }
+
+    private void alterarDadosIntegrante(Integrante i, String email, String senha){
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, senha)
+                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        user.updateEmail(i.getEmail());
+                        user.updatePassword(i.getSenha());
+
+                        FirebaseFirestore.getInstance()
+                                .collection("integrantes")
+                                .document(i.getId())
+                                .set(i)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast toast = Toast.makeText(getApplicationContext(),
+                                                "Integrante alterado com sucesso!",
+                                                Toast.LENGTH_SHORT);
+                                        toast.show();
+                                        Intent i = new Intent(CadastroIntegrante.this, IndexIntegrantes.class);
+                                        startActivity(i);
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast toast = Toast.makeText(getApplicationContext(),
+                                                "Falha ao alterar!",
+                                                Toast.LENGTH_SHORT);
+                                        toast.show();
+                                        Log.i("Integrante: ", e.getMessage().toString());
+                                    }
+                                });
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.i("Integrante", e.getMessage().toString());
+                    }
+                });
+    }
 }

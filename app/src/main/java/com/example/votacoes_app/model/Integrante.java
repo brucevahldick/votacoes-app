@@ -1,6 +1,8 @@
 package com.example.votacoes_app.model;
 
-public class Integrante {
+import java.io.Serializable;
+
+public class Integrante implements Serializable {
 
     private String id, imgageId, userId, cpf, nome, conselho, email, contato,senha;
     private int tipo;
@@ -8,6 +10,15 @@ public class Integrante {
     public Integrante() {
     }
 
+    /*
+    public Integrante(String cpf, String nome, String conselho, String contato, int tipo) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.conselho = conselho;
+        this.contato = contato;
+        this.tipo = tipo;
+    }
+    */
     public Integrante(String cpf, String nome, String conselho, String email, String contato, int tipo, String senha) {
         this.cpf = cpf;
         this.nome = nome;
