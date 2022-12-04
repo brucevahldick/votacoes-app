@@ -258,6 +258,10 @@ public class CadastroIntegrante extends AppCompatActivity {
     }
 
     private void alterarImagem(Integrante integrante, String email, String senha) {
+
+        StorageReference imageRefence = FirebaseStorage.getInstance().getReferenceFromUrl(integrante.getImgageId());
+        imageRefence.delete();
+
         String fileName = UUID.randomUUID().toString();
         StorageReference storageRef = FirebaseStorage.getInstance().
                 getReference("/images/" + fileName);
