@@ -59,13 +59,9 @@ public class Login extends AppCompatActivity {
                                             List<Integrante> usuario = queryDocumentSnapshots.toObjects(Integrante.class);
                                             Integrante integrante = usuario.get(0);
                                             usuarioLogado = integrante;
-                                            if(integrante.getTipo() == 1){
-                                                Intent intent = new Intent(Login.this, TelaInicial.class);
-                                                startActivity(intent);
-                                            } else {
-                                                Intent intent = new Intent(Login.this, IndexReunioes.class);
-                                                startActivity(intent);
-                                            }
+
+                                            Intent intent = new Intent(Login.this, TelaInicial.class);
+                                            startActivity(intent);
                                         }
                                     });
                         }
