@@ -9,7 +9,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btSalvarReunioes"
-        android:layout_width="0dp"
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="80dp"
         android:background="@drawable/round_index_buttons"
@@ -18,12 +18,12 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btVoltarCadReuniao"
-        android:layout_width="0dp"
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:background="@drawable/round_index_buttons"
@@ -32,11 +32,11 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="397dp"
+        android:layout_width="368dp"
         android:layout_height="574dp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="25dp"
@@ -80,16 +80,16 @@
             android:layout_height="45dp"
             android:layout_marginBottom="45dp"
             android:background="@drawable/round_edit_text"
-            app:mask="__:__"
-            app:maskCharacter="_"
-            app:maskStyle="normal"
             android:ems="10"
             android:inputType="textPersonName"
             android:paddingLeft="15dp"
             app:layout_constraintBottom_toTopOf="@+id/spQuorum"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.51"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:mask="__:__"
+            app:maskCharacter="_"
+            app:maskStyle="normal" />
 
         <com.santalu.maskara.widget.MaskEditText
             android:id="@+id/edCadData"
@@ -97,16 +97,16 @@
             android:layout_height="45dp"
             android:layout_marginBottom="45dp"
             android:background="@drawable/round_edit_text"
-            app:mask="__/__/__"
-            app:maskCharacter="_"
-            app:maskStyle="normal"
             android:ems="10"
             android:inputType="textPersonName"
             android:paddingLeft="15dp"
             app:layout_constraintBottom_toTopOf="@+id/edCadHora"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.51"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:mask="__/__/__"
+            app:maskCharacter="_"
+            app:maskStyle="normal" />
 
         <EditText
             android:id="@+id/edCadLocal"
