@@ -6,14 +6,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.votacoes_app.CadastroIntegrante;
-import com.example.votacoes_app.CadastroReunioes;
 import com.example.votacoes_app.IndexIntegrantes;
 import com.example.votacoes_app.R;
 import com.example.votacoes_app.model.Integrante;
@@ -29,7 +27,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class AdapterIntegrantes extends RecyclerView.Adapter<ViewHolderIntegrante> {
@@ -76,8 +73,23 @@ public class AdapterIntegrantes extends RecyclerView.Adapter<ViewHolderIntegrant
         });
 
         holder.remove.setOnClickListener( v -> {
+
             FirebaseFirestore.getInstance().collection("integrantes").document(integrante.getId())
                             .delete();
+
+            StorageReference imageRefence = FirebaseStorage.getInstance().getReferenceFromUrl(integrante.getImgageId());
+
+            imageRefence.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    Log.i("Imagem: ", "Deu boa");
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.i("Imagem: ", e.getMessage().toString());
+                }
+            });
 
             FirebaseAuth.getInstance()
                     .signInWithEmailAndPassword(integrante.getEmail(), integrante.getSenha())
@@ -86,28 +98,11 @@ public class AdapterIntegrantes extends RecyclerView.Adapter<ViewHolderIntegrant
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                                     user.delete();
-
-                                    StorageReference photoRef = FirebaseStorage.
-                                            getInstance().getReferenceFromUrl(integrante.getImgageId());
-
-                                    photoRef.delete()
-                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                @Override
-                                                public void onSuccess(Void unused) {
-                                                    Log.i("Imagem: ", "deu boa");
-                                                }
-                                            }).addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    Log.i("Imagem: ", e.getMessage().toString());
-                                                }
-                                            });
                                 }
                             });
 
             integrantes.remove(position);
             notifyItemRemoved(position);
-
         });
 
 
