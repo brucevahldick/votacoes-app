@@ -7,9 +7,20 @@
     android:background="@color/index_bg"
     tools:context=".IndexIntegrantes">
 
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvIndex"
+        app:layout_constraintVertical_bias="0.0" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btCadIntegrante"
-        android:layout_width="0dp"
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:background="@drawable/round_index_buttons"
@@ -23,7 +34,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btIndexVoltar"
-        android:layout_width="0dp"
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:background="@drawable/round_index_buttons"
@@ -34,16 +45,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvIntegrantes"
-        android:layout_width="397dp"
-        android:layout_height="513dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.389" />
 
     <TextView
         android:id="@+id/tvIndex"
@@ -58,5 +59,30 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="368dp"
+        android:layout_height="468dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="21dp"
+        android:background="@drawable/round_home"
+        app:layout_constraintBottom_toTopOf="@+id/btCadIntegrante"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvIntegrantes"
+            android:layout_width="347dp"
+            android:layout_height="429dp"
+            android:layout_marginStart="54dp"
+            android:layout_marginEnd="52dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
