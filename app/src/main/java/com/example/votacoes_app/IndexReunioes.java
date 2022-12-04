@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
-import com.example.votacoes_app.adapter.AdapterReunioes;
+
+import com.example.votacoes_app.adapter.AdapterReunioesIndex;
+import com.example.votacoes_app.adapter.BaseAdapterReunioes;
 import com.example.votacoes_app.model.Reuniao;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
@@ -19,7 +21,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 
 public class IndexReunioes extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +31,7 @@ public class IndexReunioes extends AppCompatActivity {
 
         RecyclerView recyclerView   = findViewById(R.id.rvReunioes);
         ArrayList<Reuniao> reunioes = new ArrayList<Reuniao>();
-        AdapterReunioes adapter     = new AdapterReunioes(this, reunioes);
+        BaseAdapterReunioes adapter     = new AdapterReunioesIndex(this, reunioes);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(IndexReunioes.this,
                 LinearLayoutManager.VERTICAL, false);

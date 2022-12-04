@@ -5,27 +5,22 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.votacoes_app.CadastroReunioes;
-import com.example.votacoes_app.MainActivity;
 import com.example.votacoes_app.R;
-import com.example.votacoes_app.RedirectCards;
-import com.example.votacoes_app.model.Integrante;
 import com.example.votacoes_app.model.Reuniao;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class AdapterReunioes extends RecyclerView.Adapter<ViewHolderReunioes>{
+public abstract class BaseAdapterReunioes extends RecyclerView.Adapter<ViewHolderReunioes>{
 
-    private Context context;
-    private ArrayList<Reuniao> reunioes;
+    protected Context context;
+    protected ArrayList<Reuniao> reunioes;
 
-    public AdapterReunioes(Context context, ArrayList<Reuniao> reunioes) {
+    public BaseAdapterReunioes(Context context, ArrayList<Reuniao> reunioes) {
         this.context = context;
         this.reunioes = reunioes;
     }
@@ -46,15 +41,11 @@ public class AdapterReunioes extends RecyclerView.Adapter<ViewHolderReunioes>{
         holder.hora.setText(reuniao.getHora());
 
         holder.update.setOnClickListener(v -> {
-            Intent intent = new Intent(context, CadastroReunioes.class);
-            intent.putExtra("Reuniao", reuniao);
-            context.startActivity(intent);
+            updateButtonEvent(reuniao, holder);
         });
 
         holder.remove.setOnClickListener(v -> {
-            Intent intent = new Intent(context, CadastroReunioes.class);
-            intent.putExtra("Reuniao", reuniao);
-            context.startActivity(intent);
+            removeButtonEvent(reuniao, holder);
         });
     }
 
@@ -62,6 +53,10 @@ public class AdapterReunioes extends RecyclerView.Adapter<ViewHolderReunioes>{
     public int getItemCount() {
         return reunioes.size();
     }
+
+    public abstract void updateButtonEvent(Reuniao reuniao, ViewHolderReunioes holder);
+
+    public abstract void removeButtonEvent(Reuniao reuniao, ViewHolderReunioes holder);
 }
 
 

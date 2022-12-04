@@ -5,6 +5,8 @@ import java.io.Serializable;
 public class Reuniao implements Serializable {
 
     private String id, conselho, data, hora, local, quorum, secretario;
+    private int status;
+
     public Reuniao() {
     }
 
@@ -15,6 +17,7 @@ public class Reuniao implements Serializable {
         this.local = local;
         this.quorum = quorum;
         this.secretario = secretario;
+        this.status = 1;
     }
 
     public String getConselho() {
@@ -71,5 +74,13 @@ public class Reuniao implements Serializable {
 
     public void setSecretario(String secretario) {
         this.secretario = secretario;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }
