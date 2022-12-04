@@ -91,6 +91,9 @@ public class CadastroIntegrante extends AppCompatActivity {
             edContato.setText(integrante.getContato());
             edSenha.setText(integrante.getSenha());
 
+            if(integrante.getTipo() == 1) {
+                swTipo.setChecked(true);
+            }
 
             btSalvar.setText("Alterar");
         }

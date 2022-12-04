@@ -40,7 +40,6 @@ public class IndexIntegrantes extends AppCompatActivity {
         integrantes = new ArrayList<Integrante>();
         adapter = new AdapterIntegrantes(this, integrantes);
 
-
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(IndexIntegrantes.this,
                 LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
