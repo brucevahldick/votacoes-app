@@ -45,8 +45,8 @@ public class AdapterReunioesIndex extends BaseAdapterReunioes{
         final Dialog modal = new Dialog(context);
 
         modal.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        modal.setCancelable(true);
         modal.setContentView(R.layout.modal_remove_reuniao);
+        modal.setCancelable(true);
 
         TextView data      = modal.findViewById(R.id.tvReuniaoDataModal);
         TextView conselho  = modal.findViewById(R.id.tvReuniaoConselhoModal);
