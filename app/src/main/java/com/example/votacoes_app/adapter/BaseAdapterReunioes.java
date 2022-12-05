@@ -41,11 +41,11 @@ public abstract class BaseAdapterReunioes extends RecyclerView.Adapter<ViewHolde
         holder.hora.setText(reuniao.getHora());
 
         holder.update.setOnClickListener(v -> {
-            updateButtonEvent(reuniao, holder);
+            updateButtonEvent(reuniao);
         });
 
         holder.remove.setOnClickListener(v -> {
-            removeButtonEvent(reuniao, holder);
+            removeButtonEvent(reuniao, position);
         });
     }
 
@@ -54,9 +54,9 @@ public abstract class BaseAdapterReunioes extends RecyclerView.Adapter<ViewHolde
         return reunioes.size();
     }
 
-    public abstract void updateButtonEvent(Reuniao reuniao, ViewHolderReunioes holder);
+    public abstract void updateButtonEvent(Reuniao reuniao);
 
-    public abstract void removeButtonEvent(Reuniao reuniao, ViewHolderReunioes holder);
+    public abstract void removeButtonEvent(Reuniao reuniao,int position);
 }
 
 

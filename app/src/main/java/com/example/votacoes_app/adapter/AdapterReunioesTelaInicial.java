@@ -32,7 +32,7 @@ public class AdapterReunioesTelaInicial extends BaseAdapterReunioes{
     }
 
     @Override
-    public void updateButtonEvent(Reuniao reuniao, ViewHolderReunioes holder) {
+    public void updateButtonEvent(Reuniao reuniao) {
         if(Login.usuarioLogado.getTipo() != 2 ){
             renderMembro(reuniao);
         }else{
@@ -41,7 +41,7 @@ public class AdapterReunioesTelaInicial extends BaseAdapterReunioes{
     }
 
     @Override
-    public void removeButtonEvent(Reuniao reuniao,  ViewHolderReunioes holder){}
+    public void removeButtonEvent(Reuniao reuniao,int position){}
 
     public void renderSecretario(Reuniao reuniao){
         if(!Login.usuarioLogado.getNome().equalsIgnoreCase(reuniao.getSecretario())){
