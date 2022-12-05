@@ -1,12 +1,15 @@
 package com.example.votacoes_app.adapter;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -73,39 +76,71 @@ public class AdapterIntegrantes extends RecyclerView.Adapter<ViewHolderIntegrant
         });
 
         holder.remove.setOnClickListener( v -> {
-
-            FirebaseFirestore.getInstance().collection("integrantes").document(integrante.getId())
-                            .delete();
-
-            StorageReference imageRefence = FirebaseStorage.getInstance().getReferenceFromUrl(integrante.getImgageId());
-
-            imageRefence.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void unused) {
-                    Log.i("Imagem: ", "Deu boa");
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Log.i("Imagem: ", e.getMessage().toString());
-                }
-            });
-
-            FirebaseAuth.getInstance()
-                    .signInWithEmailAndPassword(integrante.getEmail(), integrante.getSenha())
-                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                                    user.delete();
-                                }
-                            });
-
-            integrantes.remove(position);
-            notifyItemRemoved(position);
+            showRemoveModal( integrante, position);
         });
 
 
     }
 
+    public void showRemoveModal(Integrante integrante, int position){
+        final Dialog modal = new Dialog(context);
+
+        modal.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        modal.setContentView(R.layout.modal_remove_integrante);
+        modal.setCancelable(true);
+
+        TextView nome      = modal.findViewById(R.id.tvIntegranteNomeModal);
+        TextView conselho  = modal.findViewById(R.id.tvIntegranteConselhoModal);
+
+        Button btCancelar  = modal.findViewById(R.id.btCancelarModalIntegrante);
+        Button btConfirmar = modal.findViewById(R.id.btConfirmarModalIntegrante);
+
+        nome.setText(integrante.getNome());
+        conselho.setText(integrante.getConselho());
+
+        btCancelar.setOnClickListener(v -> {
+            modal.hide();
+        });
+
+        btConfirmar.setOnClickListener(v -> {
+            removeIntegrante(integrante, position);
+            modal.hide();
+        });
+
+        modal.show();
+    }
+
+
+    public void removeIntegrante(Integrante integrante, int position){
+
+        FirebaseFirestore.getInstance().collection("integrantes").document(integrante.getId())
+                .delete();
+
+        StorageReference imageRefence = FirebaseStorage.getInstance().getReferenceFromUrl(integrante.getImgageId());
+
+        imageRefence.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Log.i("Imagem: ", "Deu boa");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.i("Imagem: ", e.getMessage().toString());
+            }
+        });
+
+        FirebaseAuth.getInstance()
+                .signInWithEmailAndPassword(integrante.getEmail(), integrante.getSenha())
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        user.delete();
+                    }
+                });
+
+        integrantes.remove(position);
+        notifyItemRemoved(position);
+    }
 }
