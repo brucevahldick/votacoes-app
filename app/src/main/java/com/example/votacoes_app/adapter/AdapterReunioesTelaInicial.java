@@ -2,18 +2,14 @@ package com.example.votacoes_app.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.example.votacoes_app.CadastroReunioes;
 import com.example.votacoes_app.Login;
-import com.example.votacoes_app.R;
-import com.example.votacoes_app.TelaVotacao;
+import com.example.votacoes_app.ReuniaoPauta;
 import com.example.votacoes_app.model.Reuniao;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -50,7 +46,7 @@ public class AdapterReunioesTelaInicial extends BaseAdapterReunioes{
         }
 
         updateReuniaoAberta(reuniao);
-        redrect(reuniao);
+        redirect(reuniao);
     }
 
     public void renderMembro(Reuniao reuniao){
@@ -59,7 +55,7 @@ public class AdapterReunioesTelaInicial extends BaseAdapterReunioes{
             return;
         }
 
-        redrect(reuniao);
+        redirect(reuniao);
     }
 
     public void exibeErro(String msg){
@@ -78,8 +74,8 @@ public class AdapterReunioesTelaInicial extends BaseAdapterReunioes{
                 .set(r);
     }
 
-    public void redrect(Reuniao reuniao){
-        Intent intent = new Intent(this.context, TelaVotacao.class);
+    public void redirect(Reuniao reuniao){
+        Intent intent = new Intent(this.context, ReuniaoPauta.class);
         intent.putExtra("Reuniao", reuniao);
         context.startActivity(intent);
     }

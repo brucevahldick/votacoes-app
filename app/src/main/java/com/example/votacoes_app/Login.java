@@ -10,7 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.votacoes_app.adapter.LoadingDialog;
 import com.example.votacoes_app.model.Integrante;
+import com.example.votacoes_app.model.ItemPauta;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -28,12 +30,12 @@ public class Login extends AppCompatActivity {
 
     Button btLogin;
     EditText edEmail, edSenha;
-
+    private LoadingDialog loadingDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        loadingDialog           =   new LoadingDialog(Login.this);
         btLogin                 = findViewById(R.id.btLogin);
 
         btLogin.setOnClickListener(v -> {
@@ -42,6 +44,8 @@ public class Login extends AppCompatActivity {
 
             String email        =   edEmail.getText().toString();
             String senha        =   edSenha.getText().toString();
+
+            loadingDialog.startLoadingAnimation();
 
             FirebaseAuth.getInstance()
                     .signInWithEmailAndPassword(email, senha)
@@ -59,6 +63,8 @@ public class Login extends AppCompatActivity {
                                             List<Integrante> usuario = queryDocumentSnapshots.toObjects(Integrante.class);
                                             Integrante integrante = usuario.get(0);
                                             usuarioLogado = integrante;
+
+                                            loadingDialog.dismissDialog();
 
                                             Intent intent = new Intent(Login.this, TelaInicial.class);
                                             startActivity(intent);

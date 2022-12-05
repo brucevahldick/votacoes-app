@@ -10,6 +10,7 @@
     <color name="yellow_update">#CEB354</color>
     <color name="blue_join">#335B64</color>
     <color name="red_delete">#D05C5C</color>
+    <color name="green_vote">#75975e</color>
     <color name="index_bg">#939AB1</color>
     <color name="index_components_bg">#889FF1</color>
 </resources>

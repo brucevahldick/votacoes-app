@@ -25,7 +25,6 @@ public class IndexIntegrantes extends AppCompatActivity {
     private RecyclerView recyclerView;
     private AdapterIntegrantes adapter;
     private ArrayList<Integrante> integrantes;
-    private ArrayList<Integrante> integranteFiltro;
     private Button btCadIntegrante, btVoltar;
 
     @Override
