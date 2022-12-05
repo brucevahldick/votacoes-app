@@ -12,7 +12,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ViewHolderItemPauta extends RecyclerView.ViewHolder {
 
-    public TextView processo, votos, status;
+    public TextView processo, votos, status, taxa;
     public FloatingActionButton favoravel, contrario;
 
     public ViewHolderItemPauta(@NonNull View itemView){
@@ -20,6 +20,7 @@ public class ViewHolderItemPauta extends RecyclerView.ViewHolder {
 
         processo    = itemView.findViewById(R.id.tvProcesso);
         votos       = itemView.findViewById(R.id.tvVotos);
+        taxa        = itemView.findViewById(R.id.tvTaxa);
         status      = itemView.findViewById(R.id.tvStatus);
 
         favoravel   = itemView.findViewById(R.id.btFavoravel);

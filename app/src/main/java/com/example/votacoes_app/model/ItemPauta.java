@@ -2,12 +2,13 @@ package com.example.votacoes_app.model;
 
 public class ItemPauta {
 
-    private String id, processo, status;
+    private String id, processo, status, idReuniao;
     private int favoravel, taxa_aprovacao;
 
-    public ItemPauta(String processo, int taxa_aprovacao) {
+    public ItemPauta(String processo, int taxa_aprovacao, String idReuniao) {
         this.processo = processo;
         this.status = "Pendente";
+        this.idReuniao = idReuniao;
         this.favoravel = 0;
         this.taxa_aprovacao = taxa_aprovacao;
     }
@@ -61,5 +62,13 @@ public class ItemPauta {
 
     public void addVotoContrario(){
         this.favoravel -= 1;
+    }
+
+    public String getIdReuniao() {
+        return idReuniao;
+    }
+
+    public void setIdReuniao(String idReuniao) {
+        this.idReuniao = idReuniao;
     }
 }

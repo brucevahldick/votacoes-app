@@ -44,6 +44,7 @@ public class AdapterItemPauta extends RecyclerView.Adapter<ViewHolderItemPauta> 
         ItemPauta itemPauta = itemsPauta.get(position);
         holder.processo.setText(itemPauta.getProcesso());
         holder.votos.setText(String.valueOf(itemPauta.getFavoravel()));
+        holder.taxa.setText(String.valueOf(itemPauta.getTaxa_aprovacao()));
         holder.status.setText(itemPauta.getStatus());
 
         if(Login.usuarioLogado.getTipo() == 1) {
@@ -51,7 +52,8 @@ public class AdapterItemPauta extends RecyclerView.Adapter<ViewHolderItemPauta> 
 
         }
 
-        if(itemPauta.getStatus().equalsIgnoreCase("Concluído")){
+        if(itemPauta.getStatus().equalsIgnoreCase("Concluído")
+        && Login.usuarioLogado.getTipo() == 2){
             holder.favoravel.setVisibility(View.GONE);
             holder.contrario.setVisibility(View.GONE);
         }
@@ -81,9 +83,9 @@ public class AdapterItemPauta extends RecyclerView.Adapter<ViewHolderItemPauta> 
 
                 FirebaseFirestore.getInstance().collection("item").document(itemPauta.getId())
                         .delete();
-
                 itemsPauta.remove(position);
                 notifyItemRemoved(position);
+
             } else if (itemPauta.getFavoravel() > 0) {
                 itemPauta.addVotoContrario();
 
@@ -98,10 +100,7 @@ public class AdapterItemPauta extends RecyclerView.Adapter<ViewHolderItemPauta> 
 
                             }
                         });
-
             }
-
-
         });
 
     }

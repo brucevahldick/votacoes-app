@@ -20,10 +20,12 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+@SuppressWarnings("ALL")
 public class AddDialogFragment extends DialogFragment {
 
     private Button btAdicionar;
     private EditText processo, taxaAprovacao;
+    //private String idReuniao;
 
     @Nullable
     @Override
@@ -39,7 +41,10 @@ public class AddDialogFragment extends DialogFragment {
             String processoNome = processo.getText().toString();
             int taxa         = Integer.parseInt(taxaAprovacao.getText().toString());
 
-            ItemPauta itemPauta = new ItemPauta(processoNome, taxa);
+            Bundle bundle = this.getArguments();
+            String idReuniao = bundle.getString("idReuniao");
+
+            ItemPauta itemPauta = new ItemPauta(processoNome, taxa, idReuniao);
 
             FirebaseFirestore.getInstance().collection("item")
                     .add(itemPauta)

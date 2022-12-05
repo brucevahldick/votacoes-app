@@ -11,9 +11,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.votacoes_app.adapter.LoadingDialog;
 import com.example.votacoes_app.model.Reuniao;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -24,6 +26,7 @@ import java.util.HashMap;
 public class CadastroReunioes extends AppCompatActivity {
 
     private Reuniao reuniao;
+    private LoadingDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,8 @@ public class CadastroReunioes extends AppCompatActivity {
 
         Button btSalvar = findViewById(R.id.btSalvarReunioes);
         Button btVoltar = findViewById(R.id.btVoltarCadReuniao);
+
+        loadingDialog = new LoadingDialog(CadastroReunioes.this);
 
         Reuniao reuUpdade = reuniao = (Reuniao) getIntent().getSerializableExtra("Reuniao");
         boolean isUpdate = false;
@@ -122,10 +127,22 @@ public class CadastroReunioes extends AppCompatActivity {
     }
 
     private void alterarReuniao(Reuniao r) {
+        loadingDialog.startLoadingAnimation();
         FirebaseFirestore.getInstance()
                 .collection("reuniao")
                 .document(r.getId())
-                .set(r);
+                .set(r).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        loadingDialog.dismissDialog();
+                        Toast toast = Toast.makeText(getApplicationContext(),
+                                "Reunião atualizada com sucesso!",
+                                Toast.LENGTH_SHORT);
+                        toast.show();
+                        voltarIndex();
+                    }
+                });
+
     }
 
     private void voltarIndex(){

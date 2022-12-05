@@ -66,9 +66,15 @@ public class TelaInicial extends AppCompatActivity {
 
        Button btGerenciar = findViewById(R.id.btGerenciar);
 
-        btGerenciar.setOnClickListener(v -> {
-            Intent i = new Intent(TelaInicial.this, RedirectCards.class);
-            startActivity(i);
-        });
+       if(Login.usuarioLogado.getTipo() == 2){
+           btGerenciar.setVisibility(View.INVISIBLE);
+       } else {
+           btGerenciar.setOnClickListener(v -> {
+               Intent i = new Intent(TelaInicial.this, RedirectCards.class);
+               startActivity(i);
+           });
+       }
+
+
     }
 }

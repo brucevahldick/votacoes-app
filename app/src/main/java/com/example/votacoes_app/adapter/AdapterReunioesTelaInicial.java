@@ -40,7 +40,8 @@ public class AdapterReunioesTelaInicial extends BaseAdapterReunioes{
     public void removeButtonEvent(Reuniao reuniao,  ViewHolderReunioes holder){}
 
     public void renderSecretario(Reuniao reuniao){
-        if(!Login.usuarioLogado.getNome().equalsIgnoreCase(reuniao.getSecretario())){
+        if(Login.usuarioLogado.getTipo() == 1 &&
+                !Login.usuarioLogado.getNome().equalsIgnoreCase(reuniao.getSecretario())){
             exibeErro("Você não é o secretário desta reunião");
             return;
         }
@@ -50,7 +51,7 @@ public class AdapterReunioesTelaInicial extends BaseAdapterReunioes{
     }
 
     public void renderMembro(Reuniao reuniao){
-        if(reuniao.getStatus() != 2){
+        if(reuniao.getStatus() == 1){
             exibeErro("Reunião ainda não aberta");
             return;
         }
@@ -76,7 +77,7 @@ public class AdapterReunioesTelaInicial extends BaseAdapterReunioes{
 
     public void redirect(Reuniao reuniao){
         Intent intent = new Intent(this.context, ReuniaoPauta.class);
-        intent.putExtra("Reuniao", reuniao);
+        intent.putExtra("Reuniao", reuniao.getId());
         context.startActivity(intent);
     }
 }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,6 +47,8 @@ public class ReuniaoPauta extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
+        String reuniao_id = getIntent().getStringExtra("Reuniao");
+
         FirebaseFirestore.getInstance()
                         .collection("item")
                                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -59,8 +62,10 @@ public class ReuniaoPauta extends AppCompatActivity {
                                         for (DocumentChange dc : value.getDocumentChanges()) {
                                             if(dc.getType() == DocumentChange.Type.ADDED){
                                                 ItemPauta itemPauta = dc.getDocument().toObject(ItemPauta.class);
-                                                itemPauta.setId(dc.getDocument().getId());
-                                                itemsPauta.add(itemPauta);
+                                                if(itemPauta.getIdReuniao().equalsIgnoreCase(reuniao_id)){
+                                                    itemPauta.setId(dc.getDocument().getId());
+                                                    itemsPauta.add(itemPauta);
+                                                }
                                             }
                                             adapter.notifyDataSetChanged();
                                         }
@@ -78,10 +83,15 @@ public class ReuniaoPauta extends AppCompatActivity {
         }
 
         btAddPauta.setOnClickListener(v -> {
+
+            String idReuniao = getIntent().getStringExtra("Reuniao");
+
             Bundle bundle = new Bundle();
-            bundle.putBundle("Reuniao", getIntent().getBundleExtra("Reuniao"));
+            bundle.putString("idReuniao", idReuniao);
             AddDialogFragment addDialogFragment = new AddDialogFragment();
+            addDialogFragment.setArguments(bundle);
             addDialogFragment.show(getSupportFragmentManager(), addDialogFragment.getTag());
+
         });
     }
 }

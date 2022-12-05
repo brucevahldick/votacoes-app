@@ -17,7 +17,7 @@ public class Reuniao implements Serializable {
         this.local = local;
         this.quorum = quorum;
         this.secretario = secretario;
-        this.status = 1;
+        this.status = 2;
     }
 
     public String getConselho() {
