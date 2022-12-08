@@ -68,16 +68,18 @@ public class Client implements Subject {
     }
 
     public void listenForData() {
-        new Thread(() -> {
-            while (socket.isConnected() && !socket.isClosed()) {
-                try {
-                    // FORMATO > nome:voto;nome:voto;nome:voto
-                    messageServer = bufferedReader.readLine();
-                    notifyObservers();
-                    System.out.println(messageServer);
-                } catch (IOException e) {
+        new Thread(new Runnable() {
+            public void run() {
+                while (socket.isConnected() && !socket.isClosed()) {
+                    try {
+                        // FORMATO > nome:voto;nome:voto;nome:voto
+                        messageServer = bufferedReader.readLine();
+                        notifyObservers();
+                        System.out.println(messageServer);
+                    } catch (IOException e) {
 //                    closeConnection(socket, bufferedWriter, bufferedReader);
-                    e.printStackTrace();
+                        e.printStackTrace();
+                    }
                 }
             }
         }).start();
